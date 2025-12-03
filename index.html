@@ -77,7 +77,6 @@
             width: 100%;
             max-width: 1000px;
             padding: 40px 20px;
-            padding-bottom: 100px; /* Espacio extra abajo para que no tapen los botones flotantes */
             flex-grow: 1;
         }
 
@@ -98,7 +97,7 @@
             justify-content: space-between;
         }
 
-        .card:hover:not(.disabled) {
+        .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
             border-color: var(--primary-glow);
@@ -137,68 +136,6 @@
             border: 1px solid #00ff88;
         }
 
-        .card.disabled { opacity: 0.6; cursor: default; }
-        .card.disabled .card-icon { color: var(--secondary-glow); }
-        .status-indicator.soon {
-            background: rgba(255, 140, 0, 0.1);
-            color: var(--secondary-glow);
-            border-color: var(--secondary-glow);
-        }
-
-        /* --- NUEVO: Botones Flotantes de Soporte --- */
-        .support-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
-            align-items: flex-end; /* Alineados a la derecha */
-        }
-
-        .support-bubble {
-            background: rgba(0, 10, 20, 0.8); /* Fondo oscuro semitransparente */
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--primary-glow);
-            color: var(--primary-glow);
-            padding: 10px 20px;
-            border-radius: 50px; /* Forma de burbuja/píldora */
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
-            transition: all 0.3s ease;
-            font-family: 'Michroma', sans-serif;
-        }
-
-        .support-bubble i {
-            font-size: 1.2rem;
-        }
-
-        .support-bubble:hover {
-            background: var(--primary-glow);
-            color: #000; /* Texto negro para contraste al pasar el mouse */
-            box-shadow: 0 0 20px var(--primary-glow);
-            transform: scale(1.05);
-        }
-
-        /* Variante naranja para Panacea */
-        .support-bubble.panacea {
-            border-color: var(--secondary-glow);
-            color: var(--secondary-glow);
-            box-shadow: 0 0 10px rgba(255, 140, 0, 0.2);
-        }
-
-        .support-bubble.panacea:hover {
-            background: var(--secondary-glow);
-            color: #000;
-            box-shadow: 0 0 20px var(--secondary-glow);
-        }
-
         footer {
             padding: 20px;
             text-align: center;
@@ -214,15 +151,7 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
-            .support-container {
-                bottom: 15px;
-                right: 15px;
-                left: 15px; /* En celular, ocupan el ancho */
-            }
-            .support-bubble {
-                justify-content: center; /* Centrar texto en celular */
-                width: 100%;
-            }
+            .portal-grid { gap: 20px; }
         }
     </style>
 </head>
@@ -230,7 +159,7 @@
 
     <header>
         <div class="avatar-container">
-            <img src="gia-avatar.png" alt="Avatar GIA">
+            <img src="gia-avatar.jpg" alt="Avatar GIA">
         </div>
         <h1>GIA</h1>
         <p class="subtitle">Hub Central de Asistencia</p>
@@ -249,7 +178,7 @@
             </div>
         </a>
 
-        <a href="https://script.google.com/macros/s/AKfycbwRYzBbFOwKqqHwbVgnlXiVa5r8Jfgg1OL6uxyelH49ZlfYY2Mz-sbZAwbuijdWyK9r/exec" class="card" target="_blank">
+        <a href="https://script.google.com/macros/s/AKfycbxbWcT_fo2zVLRYrAnJUuyMXBV_twz1F3UkmEdrUEhysBVX_tNZ2CT9DL2JY0gTEWYn/exec" class="card" target="_blank">
             <div>
                 <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                 <h2>Capacitaciones</h2>
@@ -260,25 +189,22 @@
             </div>
         </a>
 
-        <div class="card disabled">
+        <a href="#" class="card">
             <div>
                 <div class="card-icon"><i class="fa-regular fa-newspaper"></i></div>
                 <h2>Noticias</h2>
                 <p>Novedades, actualizaciones del sistema y comunicados oficiales.</p>
             </div>
             <div class="card-footer">
-                <span class="status-indicator soon">En Desarrollo</span>
+                <span class="status-indicator">En Línea</span>
             </div>
-        </div>
+        </a>
 
     </main>
+
     <footer>
         <p>By: Ing Hector & Ing Pablo</p>
     </footer>
 
 </body>
 </html>
-
-
-
-
